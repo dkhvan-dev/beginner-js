@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Урок 2. Основные операторы</title>
+</head>
+<body>
+	
+
+	<script>
+			// Задание №1
+		/*var a = 1, b = 1, c, d;
+		c = ++a; alert(c);           // 2
+		// В этом случае сначала увеличивается переменная а, потом уже выполняется присваивание
+
+		d = b++; alert(d);           // 1
+		// В этом случае сначала выполняется присваивание, а потом увеличение переменной b
+
+		c = (2+ ++a); alert(c);      // 5
+		// В этом случае сначала увеличивает переменная а, потому производится сумма и после выполняется присваивание
+
+		d = (2+ b++); alert(d);      // 4
+		// В этом случае сначала выполняется сумма, потом увеличение b и после выполняется присваивание
+
+		alert(a);                    // 3
+		// В первом действии с переменной С переменная А стала равняться 2, в последнем действии с переменной С переменная А стала равняться 3.
+
+		alert(b);                    // 3
+		// В первом действии с переменной D переменная В стала равняться 2, в последнем действии с переменной D переменная В стала равняться 3.*/
+
+			// Задание №2
+		/*var a = 2;
+		var x = 1 + (a *= 2);
+		// Решение: Сначала происходит увеличение переменной А на 2, после происходит сумма 1 и переменной А(4). В итоге x равен 5.
+		// Ответ: x = 5.*/
+
+			// Задание №3
+		/*let 	a = parseInt(prompt('Введите значение переменной а', '')),
+				b = parseInt(prompt('Введите значение переменной b', ''));
+		if (a >= 0 && b >= 0) document.write('Обе переменные положительные, их разность равна ' + (Math.max(a,b) - Math.min(a,b))); else
+			if (a < 0 && b < 0) document.write('Обе переменные отрицательные, их произведение равно ' + (a * b)); else document.write('Переменные имеют разные знаки, их сумма равна ' + (a + b));*/
+
+			// Задание №4
+		/*let a = +prompt('Введите число от 1 до 15','');
+		switch(a){
+			case 1:
+				document.write(1 + " ");
+			case 2:
+				document.write(2 + " ");
+			case 3:
+				document.write(3 + " ");
+			case 4:
+				document.write(4 + " ");
+			case 5:
+				document.write(5 + " ");
+			case 6:
+				document.write(6 + " ");
+			case 7:
+				document.write(7 + " ");
+			case 8:
+				document.write(8 + " ");
+			case 9:
+				document.write(9 + " ");
+			case 10:
+				document.write(10 + " ");
+			case 11:
+				document.write(11 + " ");
+			case 12:
+				document.write(12 + " ");
+			case 13:
+				document.write(13 + " ");
+			case 14:
+				document.write(14 + " ");
+			case 15:
+				document.write(15 + " ");
+				break;
+			default:
+				alert('Ваше число не входит в промежуток [1..15]');
+		}*/
+
+			// Задание №5
+		/*let 	a = +prompt('Введите значение переменной а','');
+				b = +prompt('Введите значение переменной b','');
+		function sumTwoVariables(a,b){
+			let sum = a + b;
+			return sum;
+		}
+
+		function differeceTwoVariables(a,b){
+			let difference = Math.max(a,b) - Math.min(a,b);
+			return difference;
+		}
+
+		function MultiplicationTwoVariables(a,b){
+			let multiplication = a * b;
+			return multiplication;
+		}
+
+		function DivisionTwoVariables(a,b){
+			let division = a / b;
+			return division;
+		}
+
+
+		document.write('Сумма двух чисел равна: ' + sumTwoVariables(a,b) + "<pre>\n</pre>");
+		document.write('Разность двух чисел равна: ' + differeceTwoVariables(a,b) + "<pre>\n</pre>");
+		document.write('Умножение двух чисел равно: ' + MultiplicationTwoVariables(a,b) + "<pre>\n</pre>");
+		document.write('Деление двух чисел равно: ' + DivisionTwoVariables(a,b) + "<pre>\n</pre>");*/
+
+			// Задание №6
+		/*let 	arg1 = +prompt('Введите первое число',''),
+				arg2 = +prompt('Введите второе число',''),
+				operation = prompt('Введите название одной из операций ( + ; - ; * ; / )','');
+		
+		function mathOperation(arg1,arg2,operation){
+			switch (operation){
+				case '+':
+					return (arg1 + arg2);
+					break;
+				case '-':
+					return (Math.max(arg1,arg2) - Math.min(arg1,arg2));
+					break;
+				case '*':
+					return (arg1 * arg2);
+					break;
+				case '/':
+					return (arg1 / arg2);
+					break;
+				default:
+					alert('Вы ввели неверное название операции');
+			}
+		}
+
+		alert('Ваша операция была произведена, итоговое значение: ' + mathOperation(arg1,arg2,operation));*/
+
+			// Задание №7
+		//if (null == 0) alert('Равны'); else alert('Не равны');
+		// Обяснение: я думаю, что null в браузере - это совсем пустое место, как и undefined, а 0 - это уже элемент (как "0")
+
+			// Задание №8
+
+		/*function power(val,pow){
+			let 	decPow = pow,
+					variable = 1;
+			variable *= val;
+			pow--;
+
+			switch (decPow){
+				case 1:
+					return variable;
+					break;
+				default:
+					return variable*power(val,pow);
+					break;
+			}
+		}
+
+		let 	val = +prompt('Введите основание',''),
+				pow = +prompt('Введите показатель степени','');
+		alert(`${val} в степени ${pow} равняется: ` + power(val,pow));*/
+
+	</script>
+
+</body>
+</html>
