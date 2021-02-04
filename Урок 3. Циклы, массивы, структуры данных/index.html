@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+
+	<script>
+			// Задание №1
+		/*let i=3,j;
+		while (i>=3 && i<100){
+			let value=true;
+			j=2;
+			while (j<=Math.sqrt(parseFloat(i))){
+				if (i % j == 0){
+					value=false;
+					break;
+				}
+				j++;
+			}
+			if (value == true) document.write(i + " ");
+			i++;
+		}*/
+
+			// Задание №2-3
+		/*function countBasketPrice(price){
+			let count=0;
+			for (i=0;i<price.length;i++){
+				count += price[i];
+			}
+			return count;
+		}
+		
+		let i;
+		let price = [100,500,700,800];
+		let goods = [
+			{
+				title: "Товар №",
+				price: price[0]
+			},
+			{
+				title: "Товар №",
+				price: price[1]
+			},
+			{
+				title: "Товар №",
+				price: price[2]
+			},
+			{
+				title: "Товар №",
+				price: price[3]
+			}
+		];
+
+		price.pop();
+		goods.pop();
+
+		price.push(1000);
+		goods.push({title: "Товар №", price: price[price.length-1]});
+
+		for (i=1;i<=price.length;i++){
+			goods[i-1].title += i;
+			console.log(goods[i-1].title + " стоит " + price[i-1] + " рублей");
+		}
+
+		console.log("Итоговая сумма = " + countBasketPrice(price) + " рублей");*/
+
+			// Задаие №4
+		//for (let i=0;i<=9;console.log(i),i++){}
+
+			// Задание №5
+		/*let pyramid="",i,j;
+		for (i=1;i<=20;i++){
+			for (j=1;j<=i;j++){
+				pyramid += "x";
+			}
+			pyramid += "\n";
+		}
+		console.log(pyramid);*/
+
+
+	</script>
+
+</body>
+</html>
