@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Урок 5. DOM</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div id="chess"></div>
+
+	<script>
+		let words = ["A","B","C","D","E","F","G","H"];
+
+		function generateChessBoard(){
+			let table = document.createElement("table");
+			let tr,td,i;
+
+			for (i = 0;i < 10; i++){
+				tr = document.createElement("tr");
+				table.append(tr);
+				for (j = 0;j < 10; j++){
+					td = document.createElement("td");
+					td.style.borderWidth = "1px";
+					td.style.borderColor = "#000";
+					td.style.borderStyle = "solid";
+
+					if ( // Просто придал общие стили, чтобы не писать по 2 раза (сделал все в одном условии)
+							(i == 0 && j > 0 && j < 9) ||
+							(i == 9 && j > 0 && j < 9) ||
+							(j == 0 && i > 0 && i < 9) ||
+							(j == 9 && i > 0 && i < 9)
+					) {
+							td.style.backgroundColor = "rgb(155, 92, 11)";
+							td.style.color = "white";td.style.textAlign = "center";
+							td.style.userSelect = "none";
+					}
+
+					if ( // Выставляем номера по горизонтали
+							(i == 0 && j > 0 && j < 9) ||
+							(i == 9 && j > 0 && j < 9) ||
+							(i == 0 && j > 0 && j < 9)
+					) {
+							td.innerText = j;
+					} else
+
+					if ( // Выставляем буквы по вертикали
+							(j == 0 && i > 0 && i < 9) ||
+							(j == 9 && i > 0 && i < 9)
+					) {
+							td.innerText = words[i-1];
+					} else
+
+					if ( // Придаем цвета шахматной доске
+						(i > 0 && i % 2 == 0 && j % 2 != 0) ||
+						(j > 0 && j % 2 == 0 && i % 2 != 0)
+					) td.style.backgroundColor = "#000"; else td.style.backgroundColor = "#fff";
+					tr.append(td);
+				}
+			}
+			
+			// Стили для таблицы (размер и выравнивание по центру)
+			table.style.width = "400px";
+			table.style.height = "400px";
+			table.style.margin = "0 auto";
+			table.style.borderSpacing = "0px 0px";
+			document.querySelector("#chess").append(table);
+		}
+
+		generateChessBoard();
+
+	</script>
+</body>
+</html>

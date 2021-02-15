@@ -1,0 +1,74 @@
+/* Задание №1 */
+/* #image_1,#image_2,#image_3{
+	width: 300px;
+	height: 200px;
+} */
+
+
+/* Задание №2 */
+.catalog{
+	display: flex;
+	justify-content: space-around;
+}
+
+h1{
+	font-size: 18px;
+}
+
+img{
+	width: 300px;
+	height: auto;
+}
+
+button{
+	width: 300px;
+	height: 50px;
+}
+
+.basket{
+	display: none;
+	border: 1px solid black;
+	width: 500px;
+	margin: 0 auto;
+	padding-left: 20px;
+}
+
+.basket__product{
+	display: flex;
+}
+
+.basket__product p{
+	margin-left: 20px;
+	font-size: 14px;
+}
+
+input{
+	width: 30px;
+}
+
+/* Задание №3 */
+
+/* .wrapper{
+	width: 700px;
+	height: 500px;
+	outline: 1px solid black;
+	margin: 0 auto;
+}
+
+img{
+	width: inherit;
+	height: inherit;
+}
+
+.buttons{
+	display: flex;
+	justify-content: space-between;
+	width: 700px;
+	height: 30px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+button{
+	width: 100px;
+} */
