@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Шахматная доска с названиями фигур</title>
+</head>
+<body>
+	<div id="chess"></div>
+
+	<script>
+		let words = ["A","B","C","D","E","F","G","H"];
+		let nameFigure = ["Л","Кн","С","Ф","К","С","Кн","Л","П"];
+
+		let whiteFigures = ["&#9814;","&#9816;","&#9815;","&#9813;","&#9812;","&#9815;","&#9816;","&#9814;","&#9817;"];
+		let blackFigures = ["&#9820;","&#9822;","&#9821;","&#9819;","&#9818;","&#9821;","&#9822;","&#9820;","&#9823;"];
+
+		function generateChessBoard(){
+			let table = document.createElement("table");
+			let tr,td,i;
+
+			for (i = 0;i < 10; i++){
+				tr = document.createElement("tr");
+				table.append(tr);
+				for (j = 0;j < 10; j++){
+					td = document.createElement("td");
+
+					// Стили для ячеек таблицы (выставили границы, выровняли элементы и убрали выделение текста пользователем)
+					td.style.borderWidth = "1px";
+					td.style.borderColor = "#000";
+					td.style.borderStyle = "solid";
+					td.style.textAlign = "center";
+					td.style.userSelect = "none";
+
+					if ( // Выставляем номера по горизонтали
+							(i == 0 && j > 0 && j < 9) ||
+							(i == 9 && j > 0 && j < 9) ||
+							(i == 0 && j > 0 && j < 9)
+					) td.innerText = j;
+					else
+
+					if ( // Выставляем буквы по вертикали
+							(j == 0 && i > 0 && i < 9) ||
+							(j == 9 && i > 0 && i < 9)
+					) td.innerText = words[i-1];
+					else
+
+					if ( // Придаем цвета шахматной доске
+						(i > 0 && i % 2 == 0 && j % 2 != 0) ||
+						(j > 0 && j % 2 == 0 && i % 2 != 0)
+					) td.style.backgroundColor = "rgb(155, 92, 11)"; else td.style.backgroundColor = "#8c8c8c";
+
+					// Расставляем задний ряд (сначала черные фигуры, потом белые)
+					if (i == 1 && j > 0 && j < 9) td.innerHTML = blackFigures[j-1]; else
+						if (i == 8 && j > 0 && j < 9) {td.innerHTML = whiteFigures[j-1];td.style.color = "#fff";}
+
+					// Расставляем передний ряд (сначала черные фигуры, потом белые)
+					if (i==2 && j > 0 && j < 9) td.innerHTML = blackFigures[blackFigures.length-1]; else
+						if (i==7 && j > 0 && j < 9) {td.innerHTML = whiteFigures[whiteFigures.length-1];td.style.color = "#fff";}
+
+					tr.append(td);
+				}
+			}
+
+			// Стили для таблицы (размер и выравнивание по центру)
+			table.style.width = "400px";
+			table.style.height = "400px";
+			table.style.margin = "0 auto";
+			table.style.borderSpacing = "0px 0px";
+			document.querySelector("#chess").append(table);
+		}
+
+		generateChessBoard();
+
+	</script>
+</body>
+</html>
